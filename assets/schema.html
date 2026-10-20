@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>LƯỢC ĐỒ QUAN HỆ (RELATIONAL SCHEMA)</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #f1f5f9;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 30px;
+    }
+    .diagram-card {
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+      border: 1px solid #cbd5e1;
+      padding: 24px 28px 32px 28px;
+      display: inline-block;
+    }
+    .header {
+      margin-bottom: 20px;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .title {
+      font-size: 22px;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.3px;
+    }
+    .badge {
+      background: #2563eb;
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 9999px;
+      letter-spacing: 0.5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="diagram-card">
+    <div class="header">
+      <div class="title">LƯỢC ĐỒ QUAN HỆ (RELATIONAL SCHEMA)</div>
+      <div class="badge">HỆ CƠ SỞ DỮ LIỆU • ERD MODEL</div>
+    </div>
+    <svg width="1440" height="980" viewBox="0 0 1440 980" xmlns="http://www.w3.org/2000/svg" style="background:#ffffff; border-radius: 12px;">
+  <defs>
+    <filter id="shadowTbl" x="-8%" y="-8%" width="120%" height="120%">
+      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.08" />
+    </filter>
+  </defs>
+
+  <style>
+    .tbl-title { font-size: 13px; font-weight: 800; fill: #ffffff; }
+    .col-pk { font-size: 12px; font-weight: 800; fill: #b91c1c; }
+    .col-fk { font-size: 12px; font-weight: 700; fill: #2563eb; }
+    .col-norm { font-size: 12px; fill: #1e293b; }
+    .col-type { font-size: 11px; fill: #64748b; text-anchor: end; font-family: monospace; }
+  </style>
+
+  <!-- Title Banner -->
+  <rect x="20" y="15" width="1400" height="42" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" />
+  <text x="720" y="42" font-size="15" font-weight="800" fill="#0f172a" text-anchor="middle">
+    LƯỢC ĐỒ CƠ SỞ DỮ LIỆU QUAN HỆ (RELATIONAL SCHEMA) TỪ MÔ HÌNH ERD
+  </text>
+
+  <!-- TABLE 1: DON_VI_KHACH -->
+  <g transform="translate(60, 80)" filter="url(#shadowTbl)">
+    <rect width="250" height="150" rx="8" fill="#ffffff" stroke="#cbd5e1" />
+    <path d="M 0,8 Q 0,0 8,0 L 242,0 Q 250,0 250,8 L 250,32 L 0,32 Z" fill="#4338ca" />
+    <text x="15" y="21" class="tbl-title">🏢 DON_VI_KHACH</text>
+    
+    <text x="15" y="55" class="col-pk">🔑 MaDV (PK)</text>
+    <text x="235" y="55" class="col-type">VARCHAR(20)</text>
+    <line x1="10" y1="65" x2="240" y2="65" stroke="#f1f5f9" />
+
+    <text x="15" y="85" class="col-norm">TenDV</text>
+    <text x="235" y="85" class="col-type">NVARCHAR(100)</text>
+    <line x1="10" y1="95" x2="240" y2="95" stroke="#f1f5f9" />
+
+    <text x="15" y="115" class="col-norm">DiaChi</text>
+    <text x="235" y="115" class="col-type">NVARCHAR(200)</text>
+    <line x1="10" y1="125" x2="240" y2="125" stroke="#f1f5f9" />
+
+    <text x="15" y="142" class="col-norm">DienThoai</text>
+    <text x="235" y="142" class="col-type">VARCHAR(15)</text>
+  </g>
+
+  <!-- TABLE 2: NGUOI_DAT -->
+  <g transform="translate(400, 80)" filter="url(#shadowTbl)">
+    <rect width="250" height="125" rx="8" fill="#ffffff" stroke="#cbd5e1" />
+    <path d="M 0,8 Q 0,0 8,0 L 242,0 Q 250,0 250,8 L 250,32 L 0,32 Z" fill="#1e40af" />
+    <text x="15" y="21" class="tbl-title">👤 NGUOI_DAT</text>
+    
+    <text x="15" y="55" class="col-pk">🔑 MaSoND (PK)</text>
+    <text x="235" y="55" class="col-type">VARCHAR(20)</text>
+    <line x1="10" y1="65" x2="240" y2="65" stroke="#f1f5f9" />
+
+    <text x="15" y="85" class="col-norm">HoTenND</text>
+    <text x="235" y="85" class="col-type">NVARCHAR(100)</text>
+    <line x1="10" y1="95" x2="240" y2="95" stroke="#f1f5f9" />
+
+    <text x="15" y="115" class="col-fk">🔗 MaDV (FK)</text>
+    <text x="235" y="115" class="col-type">VARCHAR(20)</text>
+  </g>
+
+  <!-- TABLE 3: NGUOI_NHAN -->
+  <g transform="translate(740, 80)" filter="url(#shadowTbl)">
+    <rect width="250" height="125" rx="8" fill="#ffffff" stroke="#cbd5e1" />
+    <path d="M 0,8 Q 0,0 8,0 L 242,0 Q 250,0 250,8 L 250,32 L 0,32 Z" fill="#1e40af" />
+    <text x="15" y="21" class="tbl-title">👤 NGUOI_NHAN</text>
+    
+    <text x="15" y="55" class="col-pk">🔑 MaSoNN (PK)</text>
+    <text x="235" y="55" class="col-type">VARCHAR(20)</text>
+    <line x1="10" y1="65" x2="240" y2="65" stroke="#f1f5f9" />
+
+    <text x="15" y="85" class="col-norm">HoTenNN</text>
+    <text x="235" y="85" class="col-type">NVARCHAR(100)</text>
+    <line x1="10" y1="95" x2="240" y2="95" stroke="#f1f5f9" />
+
+    <text x="15" y="115" class="col-fk">🔗 MaDV (FK)</text>
+    <text x="235" y="115" class="col-type">VARCHAR(20)</text>
+  </g>
+
+  <!-- TABLE 4: NGUOI_GIAO -->
+  <g transform="translate(1080, 80)" filter="url(#shadowTbl)">
+    <rect width="250" height="100" rx="8" fill="#ffffff" stroke="#cbd5e1" />
+    <path d="M 0,8 Q 0,0 8,0 L 242,0 Q 250,0 250,8 L 250,32 L 0,32 Z" fill="#0f766e" />
+    <text x="15" y="21" class="tbl-title">🚚 NGUOI_GIAO</text>
+    
+    <text x="15" y="55" class="col-pk">🔑 MaSoNG (PK)</text>
+    <text x="235" y="55" class="col-type">VARCHAR(20)</text>
+    <line x1="10" y1="65" x2="240" y2="65" stroke="#f1f5f9" />
+
+    <text x="15" y="85" class="col-norm">HoTenNG</text>
+    <text x="235" y="85" class="col-type">NVARCHAR(100)</text>
+  </g>
+
+
+  <!-- TABLE 5: DON_DAT_HANG -->
+  <g transform="translate(400, 290)" filter="url(#shadowTbl)">
+    <rect width="250" height="125" rx="8" fill="#ffffff" stroke="#cbd5e1" />
+    <path d="M 0,8 Q 0,0 8,0 L 242,0 Q 250,0 250,8 L 250,32 L 0,32 Z" fill="#b45309" />
+    <text x="15" y="21" class="tbl-title">📋 DON_DAT_HANG</text>
+    
+    <text x="15" y="55" class="col-pk">🔑 SoDH (PK)</text>
+    <text x="235" y="55" class="col-type">VARCHAR(20)</text>
+    <line x1="10" y1="65" x2="240" y2="65" stroke="#f1f5f9" />
+
+    <text x="15" y="85" class="col-norm">NgayDat</text>
+    <text x="235" y="85" class="col-type">DATE</text>
+    <line x1="10" y1="95" x2="240" y2="95" stroke="#f1f5f9" />
+
+    <text x="15" y="115" class="col-fk">🔗 MaSoND (FK)</text>
+    <text x="235" y="115" class="col-type">VARCHAR(20)</text>
+  </g>
+
+  <!-- TABLE 6: HANG -->
+  <g transform="translate(60, 480)" filter="url(#shadowTbl)">
+    <rect width="250" height="150" rx="8" fill="#ffffff" stroke="#cbd5e1" />
+    <path d="M 0,8 Q 0,0 8,0 L 242,0 Q 250,0 250,8 L 250,32 L 0,32 Z" fill="#047857" />
+    <text x="15" y="21" class="tbl-title">📦 HANG_HOA</text>
+    
+    <text x="15" y="55" class="col-pk">🔑 MaHang (PK)</text>
+    <text x="235" y="55" class="col-type">VARCHAR(20)</text>
+    <line x1="10" y1="65" x2="240" y2="65" stroke="#f1f5f9" />
+
+    <text x="15" y="85" class="col-norm">TenHang</text>
+    <text x="235" y="85" class="col-type">NVARCHAR(100)</text>
+    <line x1="10" y1="95" x2="240" y2="95" stroke="#f1f5f9" />
+
+    <text x="15" y="115" class="col-norm">DvTinh</text>
+    <text x="235" y="115" class="col-type">NVARCHAR(30)</text>
+    <line x1="10" y1="125" x2="240" y2="125" stroke="#f1f5f9" />
+
+    <text x="15" y="142" class="col-norm">MoTaHang</text>
+    <text x="235" y="142" class="col-type">NVARCHAR(255)</text>
+  </g>
+
+  <!-- TABLE 7: CHI_TIET_DAT_HANG -->
+  <g transform="translate(400, 480)" filter="url(#shadowTbl)">
+    <rect width="250" height="125" rx="8" fill="#ffffff" stroke="#cbd5e1" />
+    <path d="M 0,8 Q 0,0 8,0 L 242,0 Q 250,0 250,8 L 250,32 L 0,32 Z" fill="#b45309" />
+    <text x="15" y="21" class="tbl-title">📝 CHI_TIET_DAT_HANG</text>
+    
+    <text x="15" y="55" class="col-pk">🔑 SoDH (PK, FK)</text>
+    <text x="235" y="55" class="col-type">VARCHAR(20)</text>
+    <line x1="10" y1="65" x2="240" y2="65" stroke="#f1f5f9" />
+
+    <text x="15" y="85" class="col-pk">🔑 MaHang (PK, FK)</text>
+    <text x="235" y="85" class="col-type">VARCHAR(20)</text>
+    <line x1="10" y1="95" x2="240" y2="95" stroke="#f1f5f9" />
+
+    <text x="15" y="115" class="col-norm">SoLuongDat</text>
+    <text x="235" y="115" class="col-type">INT</text>
+  </g>
+
+  <!-- TABLE 8: NOI_GIAO -->
+  <g transform="translate(1080, 240)" filter="url(#shadowTbl)">
+    <rect width="250" height="100" rx="8" fill="#ffffff" stroke="#cbd5e1" />
+    <path d="M 0,8 Q 0,0 8,0 L 242,0 Q 250,0 250,8 L 250,32 L 0,32 Z" fill="#0369a1" />
+    <text x="15" y="21" class="tbl-title">📍 NOI_GIAO</text>
+    
+    <text x="15" y="55" class="col-pk">🔑 MaSoDDG (PK)</text>
+    <text x="235" y="55" class="col-type">VARCHAR(20)</text>
+    <line x1="10" y1="65" x2="240" y2="65" stroke="#f1f5f9" />
+
+    <text x="15" y="85" class="col-norm">TenNoiGiao</text>
+    <text x="235" y="85" class="col-type">NVARCHAR(200)</text>
+  </g>
+
+  <!-- TABLE 9: PHIEU_GIAO_HANG -->
+  <g transform="translate(740, 440)" filter="url(#shadowTbl)">
+    <rect width="260" height="205" rx="8" fill="#ffffff" stroke="#cbd5e1" />
+    <path d="M 0,8 Q 0,0 8,0 L 252,0 Q 260,0 260,8 L 260,32 L 0,32 Z" fill="#c2410c" />
+    <text x="15" y="21" class="tbl-title">📄 PHIEU_GIAO_HANG</text>
+    
+    <text x="15" y="55" class="col-pk">🔑 SoPG (PK)</text>
+    <text x="245" y="55" class="col-type">VARCHAR(20)</text>
+    <line x1="10" y1="65" x2="250" y2="65" stroke="#f1f5f9" />
+
+    <text x="15" y="85" class="col-norm">NgayGiao</text>
+    <text x="245" y="85" class="col-type">DATE</text>
+    <line x1="10" y1="95" x2="250" y2="95" stroke="#f1f5f9" />
+
+    <text x="15" y="115" class="col-fk">🔗 SoDH (FK)</text>
+    <text x="245" y="115" class="col-type">VARCHAR(20)</text>
+    <line x1="10" y1="125" x2="250" y2="125" stroke="#f1f5f9" />
+
+    <text x="15" y="145" class="col-fk">🔗 MaSoNG (FK)</text>
+    <text x="245" y="145" class="col-type">VARCHAR(20)</text>
+    <line x1="10" y1="155" x2="250" y2="155" stroke="#f1f5f9" />
+
+    <text x="15" y="175" class="col-fk">🔗 MaSoNN (FK)</text>
+    <text x="245" y="175" class="col-type">VARCHAR(20)</text>
+    <line x1="10" y1="185" x2="250" y2="185" stroke="#f1f5f9" />
+
+    <text x="15" y="198" class="col-fk">🔗 MaSoDDG (FK)</text>
+    <text x="245" y="198" class="col-type">VARCHAR(20)</text>
+  </g>
+
+  <!-- TABLE 10: CHI_TIET_GIAO_HANG -->
+  <g transform="translate(1080, 440)" filter="url(#shadowTbl)">
+    <rect width="270" height="175" rx="8" fill="#ffffff" stroke="#cbd5e1" />
+    <path d="M 0,8 Q 0,0 8,0 L 262,0 Q 270,0 270,8 L 270,32 L 0,32 Z" fill="#c2410c" />
+    <text x="15" y="21" class="tbl-title">🧾 CHI_TIET_GIAO_HANG</text>
+    
+    <text x="15" y="55" class="col-pk">🔑 SoPG (PK, FK)</text>
+    <text x="255" y="55" class="col-type">VARCHAR(20)</text>
+    <line x1="10" y1="65" x2="260" y2="65" stroke="#f1f5f9" />
+
+    <text x="15" y="85" class="col-pk">🔑 MaHang (PK, FK)</text>
+    <text x="255" y="85" class="col-type">VARCHAR(20)</text>
+    <line x1="10" y1="95" x2="260" y2="95" stroke="#f1f5f9" />
+
+    <text x="15" y="115" class="col-norm">SoLuongGiao</text>
+    <text x="255" y="115" class="col-type">INT</text>
+    <line x1="10" y1="125" x2="260" y2="125" stroke="#f1f5f9" />
+
+    <text x="15" y="142" class="col-norm">DonGia</text>
+    <text x="255" y="142" class="col-type">DECIMAL(18,2)</text>
+    <line x1="10" y1="152" x2="260" y2="152" stroke="#f1f5f9" />
+
+    <text x="15" y="166" class="col-norm">ThanhTien</text>
+    <text x="255" y="166" class="col-type">DECIMAL(18,2)</text>
+  </g>
+
+  <!-- Connectors between Tables (Visualizing PK-FK Relationships) -->
+  <path d="M 310,135 L 355,135 L 355,195 L 400,195" fill="none" stroke="#6366f1" stroke-width="2" />
+  <path d="M 310,135 L 355,135 L 355,55 L 710,55 L 710,195 L 740,195" fill="none" stroke="#6366f1" stroke-width="2" />
+  <path d="M 525,205 L 525,290" fill="none" stroke="#2563eb" stroke-width="2" />
+  <path d="M 525,415 L 525,480" fill="none" stroke="#d97706" stroke-width="2" />
+  <path d="M 310,535 L 400,535" fill="none" stroke="#059669" stroke-width="2" />
+  <path d="M 650,350 L 695,350 L 695,555 L 740,555" fill="none" stroke="#d97706" stroke-width="2" />
+  <path d="M 1000,495 L 1080,495" fill="none" stroke="#ea580c" stroke-width="2" />
+  <path d="M 185,630 L 185,690 L 1215,690 L 1215,615" fill="none" stroke="#059669" stroke-width="2" />
+
+  <!-- Summary Card (Perfect formatting & text containment) -->
+  <g transform="translate(60, 720)">
+    <rect width="1320" height="235" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" />
+    <text x="30" y="32" font-size="14.5" font-weight="800" fill="#0f172a">TỔNG HỢP CÁC RÀNG BUỘC TOÀN VẸN &amp; KHÓA NGOẠI (FOREIGN KEYS) CỦA CƠ SỞ DỮ LIỆU:</text>
+    
+    <text x="30" y="65" font-size="13" font-weight="700" fill="#4338ca">1. Bảng Khách hàng &amp; Nhân sự đại diện:</text>
+    <text x="50" y="85" font-size="12" fill="#334155">• NGUOI_DAT (MaDV) và NGUOI_NHAN (MaDV) là khóa ngoại tham chiếu đến DON_VI_KHACH (MaDV). Quan hệ 1 : N.</text>
+
+    <text x="30" y="115" font-size="13" font-weight="700" fill="#b45309">2. Bảng Đơn đặt hàng &amp; Chi tiết đặt:</text>
+    <text x="50" y="135" font-size="12" fill="#334155">• DON_DAT_HANG (MaSoND) tham chiếu NGUOI_DAT. CHI_TIET_DAT_HANG có khóa chính phức hợp (SoDH, MaHang) giải quyết quan hệ N : M giữa Đơn đặt hàng và Hàng hóa.</text>
+
+    <text x="30" y="165" font-size="13" font-weight="700" fill="#c2410c">3. Bảng Phiếu giao hàng &amp; Chi tiết giao hàng:</text>
+    <text x="50" y="185" font-size="12" fill="#334155">• PHIEU_GIAO_HANG liên kết đa chiều: SoDH (Đơn đặt hàng gốc), MaSoNG (Người giao), MaSoNN (Người nhận), MaSoDDG (Nơi giao).</text>
+    <text x="50" y="205" font-size="12" fill="#334155">• CHI_TIET_GIAO_HANG có khóa chính phức hợp (SoPG, MaHang) lưu số lượng giao thực tế, đơn giá và thành tiền theo từng mặt hàng.</text>
+  </g>
+</svg>
+
+  </div>
+</body>
+</html>
